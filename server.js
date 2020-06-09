@@ -25,7 +25,7 @@ app.get('/',(req,res)=>{
 */
 
 
-// SIGNIN
+// SIGNIN ENDPOINT
 
 const database = {
     users:[
@@ -60,7 +60,7 @@ app.post('/signin',(req,res) =>{
    
 })
 
-//REGISTER
+//REGISTER ENDPOINT
 
 app.post('/register', (req,res)=>{
     const {email, name, password} = req.body
@@ -75,6 +75,41 @@ app.post('/register', (req,res)=>{
     res.json(database.users[database.users.length-1]);
 });
 
-app.listen(3001,()=>{
-    console.log('app is running on port 3001');
+
+//USER ENDPOINT
+
+app.get('/profile/:id', (req,res)=>{
+    const {id} = req.params;
+    let found = false;
+    database.users.forEach(user =>{
+        if(user.id===id){
+            found = true;
+            return res.json(user);
+        }
+    })
+    if(!found){
+        res.status(400).json("not found");
+    }
+});
+
+//IMAGE counter ENDPOINT 
+
+app.put("/image", (req,res)=>{
+    const {id} = req.body;
+    let found = false;
+    database.users.forEach(user =>{
+        if(user.id === id){
+            found = true;
+            user.entries++;
+            return res.json(user.entries);
+        }
+    })
+    if(!found){
+        res.status(400).json("not found");
+    }
+})
+
+
+app.listen(3002,()=>{
+    console.log('app is running on port 3002');
 })
