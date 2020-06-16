@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "start": "server.js"
-    //"start": "serve -s build",
   },
   "author": "",
   "license": "ISC",
