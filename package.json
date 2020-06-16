@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    //"start": "server.js"
-    "start": "serve -s build"
+    "start": "server.js"
+    //"start": "serve -s build",
   },
   "author": "",
   "license": "ISC",
