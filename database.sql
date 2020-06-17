@@ -3,8 +3,8 @@ CREATE TABLE users (
     name VARCHAR(100),
     email TEXT UNIQUE NOT NULL,
     entries BIGINT DEFAULT 0,
-    joined TIMESTAMP NOT NULL,
-);
+    joined TIMESTAMP NOT NULL
+    );
 
 CREATE TABLE login (
     id SERIAL PRIMARY KEY,
